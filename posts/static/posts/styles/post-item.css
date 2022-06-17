@@ -30,13 +30,6 @@ ul {
   object-fit: cover;
 }
 
-.post-details h3 {
-  color: inherit;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 2rem;
-}
-
 .post-item .header-user-info {
   position: absolute;
   top: 1rem;
@@ -51,6 +44,21 @@ ul {
   font-size: 0.8rem;
   margin-left: 2rem;
   font-style: normal;
+}
+
+.post-details {
+  padding-right: 0.5rem;
+}
+
+.post-details h3 {
+  color: inherit;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.post-details article {
+  text-align: justify;
 }
 
 .post-actions {
