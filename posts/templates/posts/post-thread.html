@@ -1,0 +1,88 @@
+{% extends 'posts/base/base.html' %}
+
+{% load static %}
+
+{% block title %}
+  {{ post.title }}
+{% endblock %}
+
+{% block site_css %}
+  <link rel="stylesheet" href="{% static 'posts/styles/post-item.css' %}">
+  <link rel="stylesheet" href="{% static 'posts/styles/post-form.css' %}">
+  <link rel="stylesheet" href="{% static 'posts/styles/post-thread.css' %}">
+{% endblock %}
+
+{% block main_heading %}
+  # Main heading
+{% endblock %}
+
+{% block header_content %}
+  <p># Heading content</p>
+{% endblock %}
+
+{% block body %}
+  <section id="main">
+    <section id='original-post'>
+      <ul>
+        {% include 'posts/includes/post-item.html' with post_item=post %}
+      </ul>
+    </section>
+    {% if not reply_to_comment %}
+      <section id='new-post'>
+        <form action="" method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            <ul>
+              {{ form.as_ul }}
+            </ul>
+            <div id="new-post-actions">
+              <button>Submit</button>
+            </div>
+        </form>
+      </section>
+    {% endif %}
+    <section id='comments'>
+      <ul>
+        {% for comment, levels in comments_tree.items %}
+            {% for i in levels.0 %}
+              {% if levels.1 > 0 %}
+                <ul class="child">
+              {% elif levels.1 < 0 %}
+                </ul>
+              {% endif %}
+            {% endfor %}
+
+            <li id="{{ comment.slug }}">
+              <span class="user">{{ comment.user_name }}</span>
+              <address class="email">{{ comment.user_email }}</address>
+              <span class="date">{{ comment.date_time }}</span>
+              <h3 class="title">{{ comment.title }}</h3>
+              <div class="image-content">
+                {% if comment.image %}
+                  <div class="image">
+                    <a href="{{ comment.image.url }}"><img src={{ comment.image.url }} alt=""></a>
+                  </div>
+                {% endif %}
+                <div class="content">{{ comment.content|linebreaks }}</div>
+              </div>
+              <div class="comment">
+                <a href="{% url 'post-comment' post.slug comment.slug %}#{{ comment.slug}}" class="comment-this">Comment</a>
+              </div>
+            </li>
+            {% if reply_to_comment == comment %}
+              <section id='new-post'>
+                <form action="" method="POST" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <ul>
+                      {{ form.as_ul }}
+                    </ul>
+                    <div id="new-post-actions">
+                      <button>Submit</button>
+                    </div>
+                </form>
+              </section>
+            {% endif %}
+        {% endfor %}
+      </ul>
+    </section>
+  </section>
+{% endblock %}

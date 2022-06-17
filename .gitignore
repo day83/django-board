@@ -1,0 +1,8 @@
+*.pyc
+*.log
+*.swp
+__pycache__/
+db.sqlite3
+static/
+uploads/
+local_settings.py

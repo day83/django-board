@@ -1,0 +1,22 @@
+{% load static %}
+<li class="post-item">
+  <div class="header-user-info">
+    <span class="user-name">{{ post_item.user_name }}</span>
+    <address class="email">{{ post_item.author_email }}</address>
+    <div class="date-time">{{ post_item.date_time }}</div>
+  </div>
+  <article>
+    <div class="post-summary">
+      <div class="post-image">
+        <a href="{{ post_item.image.url }}" target="_blank"><img src="{{ post_item.image.url }}" alt="{{ post_item.title }}"></a>
+      </div>
+      <div class="post-details">
+        <h3>{{ post_item.title }}</h3>
+        <article>{{ post_item.content|linebreaks }}</article>
+      </div>
+    </div>
+    <div class="post-actions">
+      <a href="{% url 'post-thread' post_item.slug %}#original-post" class="btn">Reply</a>
+    </div>
+  </article>
+</li>
