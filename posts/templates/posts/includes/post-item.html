@@ -16,6 +16,11 @@
       </div>
     </div>
     <div class="post-actions">
+      <div class="comments">
+      <a href="{% url 'post-thread' post_item.slug %}#comments" class="link">
+        <span>Comments: {{ post_item.comment_set.all.count }}</span>
+      </a>
+      </div>
       <a href="{% url 'post-thread' post_item.slug %}#original-post" class="btn">Reply</a>
     </div>
   </article>

@@ -10,6 +10,9 @@ from django.http import HttpResponse
 # Create your views here.
 def index(request):
     posts = Post.objects.all().order_by('-id')
+    # comments_total = 0
+    # for post in posts:
+        # comments_total
 
     if request.method == "POST":
         try:
@@ -39,7 +42,8 @@ def index(request):
 
     return render(request, 'posts/index.html', {
         'posts': posts,
-        'form': form
+        'form': form,
+        # 'comments_total': comments_total
     })
 
 def post_thread(request, post_slug, comment_slug=None):

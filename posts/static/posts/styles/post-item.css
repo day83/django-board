@@ -7,7 +7,7 @@ ul {
 .post-item {
   margin: 1rem 0;
   background: #102e5e;
-  padding: 2rem;
+  padding: 2rem 2rem 1.5rem;
   color: white;
   border-radius: 4px;
   position: relative;
@@ -40,8 +40,8 @@ ul {
 .post-item .header-user-info .email,
 .post-item .header-user-info .date-time {
   display: inline-block;
-  color: rgb(196, 189, 172);
-  font-size: 0.8rem;
+  color: rgb(167 185 210);
+  font-size: 0.9rem;
   margin-left: 2rem;
   font-style: normal;
 }
@@ -64,6 +64,21 @@ ul {
 .post-actions {
   margin-top: 1.5rem;
   text-align: right;
+}
+
+.post-actions .comments {
+  /* color: rgb(196, 189, 172); */
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+.post-actions .link {
+  color: rgb(167 185 210);
+  text-decoration: none;
+}
+
+.post-actions .link:hover {
+  color: #85a9ff;
 }
 
 .post-actions .btn {
