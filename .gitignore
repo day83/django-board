@@ -3,5 +3,6 @@
 *.swp
 __pycache__/
 db.sqlite3
-uploads/
+/uploads
+/static
 local_settings.py
