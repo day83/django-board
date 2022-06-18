@@ -59,6 +59,10 @@ ul {
   display: none;
 }
 
+.post-item .header-user-info .link:hover {
+  color: #c7ceff;
+}
+
 .post-details {
   padding-right: 0.5rem;
 }
@@ -75,7 +79,7 @@ ul {
 }
 
 .post-actions {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   text-align: right;
 }
 

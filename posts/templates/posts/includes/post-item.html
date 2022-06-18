@@ -6,9 +6,9 @@
       <address class="email">
         <a href="mailto:{{ post_item.author_email }}">
           {% if post_item.user_name and post_item.author_email %}
-            ({{ post_item.author_email }})
+            (<span class="link">{{ post_item.author_email }}</span>)
           {% else %}
-            {{ post_item.author_email }}
+            <span class="link">{{ post_item.author_email }}</span>
           {% endif %}
         </a>
       </address>
