@@ -34,16 +34,29 @@ ul {
   position: absolute;
   top: 1rem;
   right: 2rem;
+  color: rgb(167 185 210);
+  font-size: 0.9rem;
 }
 
 .post-item .header-user-info .user-name,
 .post-item .header-user-info .email,
 .post-item .header-user-info .date-time {
   display: inline-block;
-  color: rgb(167 185 210);
-  font-size: 0.9rem;
-  margin-left: 2rem;
   font-style: normal;
+}
+
+.post-item .header-user-info a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-item .header-user-info .user-name,
+.post-item .header-user-info .email {
+  margin-right: 1rem;
+}
+
+.post-item .header-user-info .email:empty {
+  display: none;
 }
 
 .post-details {

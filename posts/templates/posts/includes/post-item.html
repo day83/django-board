@@ -2,7 +2,17 @@
 <li class="post-item">
   <div class="header-user-info">
     <span class="user-name">{{ post_item.user_name }}</span>
-    <address class="email">{{ post_item.author_email }}</address>
+    {% if post_item.author_email %}
+      <address class="email">
+        <a href="mailto:{{ post_item.author_email }}">
+          {% if post_item.user_name and post_item.author_email %}
+            ({{ post_item.author_email }})
+          {% else %}
+            {{ post_item.author_email }}
+          {% endif %}
+        </a>
+      </address>
+    {% endif %}
     <div class="date-time">{{ post_item.date_time }}</div>
   </div>
   <article>
